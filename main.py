@@ -22,8 +22,14 @@ def clean_directory(directory):
     if not os.path.isdir(directory):
         print(directory + " is not a directory! Skipping")
         return
-
     for file in os.listdir(directory):
+        full_name = directory + os.sep + file
+        if os.path.isdir(full_name):
+            log("Cleaning recursively " + full_name )
+            clean_directory(full_name)
+
+        log(full_name)
+
         if re.search(searchExpression, file) is not None:
             name = re.sub(searchExpression, "", file)
 
@@ -37,10 +43,9 @@ def clean_directory(directory):
                 name += str(time.time_ns() - random.randint(0, 10000))
 
             new_name = directory + os.sep + name
-            old_name = directory + os.sep + file
-            cleaned.append("%r -> %s" % (old_name, new_name))
-            os.rename(old_name, new_name)
-            log("Renaming '" + file + "' -> '" + name + "'")
+            cleaned.append("%r -> %s" % (full_name, new_name))
+            os.rename(full_name, new_name)
+            print("Renaming '" + file + "' -> '" + name + "'")
 
 
 def print_red(string):
@@ -92,6 +97,9 @@ if args.clean:
     cleaned = []
     print("Cleaning resource pack names...")
     for d in args.directories:
+        if not os.path.isdir(d):
+            print(d + " is not a directory! Skipping")
+            continue
         print("Directory: %r" % d)
         clean_directory(d)
 
@@ -99,6 +107,9 @@ if args.scan:
     invalid = []
     print("Scanning for invalid resource packs...")
     for d in args.directories:
+        if not os.path.isdir(d):
+            print(d + " is not a directory! Skipping")
+            continue
         print("Directory: %r" % d)
         scan_directory(d)
 
