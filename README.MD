@@ -1,4 +1,4 @@
-#Features
+# Features
  - Cleans resource pack names by removing "!" and " " from the beginning of the name
  - Scans packs for invalid pack.mcmeta files and invalid structure
 
@@ -35,7 +35,7 @@ Sometimes there are invalid pack.mcmeta files in a resource pack preventing it f
 If you are using [aycy's resource pack manager mod v1.2](https://www.youtube.com/watch?v=OQZFWrrEcYM) this can go as far as not loading any subdirectories because of one invalid file.
 
 This tool scans your resource pack directory and reports any broken files.
-More information about this can be found [here]()
+More information about this can be found [here](https://github.com/spasskopf/Pack-Tools/wiki/Checking-Resource-Packs-for-invalid-pack.mcmeta-files)
 
 # Usage
 
