@@ -1,6 +1,9 @@
-Cleans resource pack names by removing "!" and " " from the beginning of the name
+#Features
+ - Cleans resource pack names by removing "!" and " " from the beginning of the name
+ - Scans packs for invalid pack.mcmeta files and invalid structure
 
-# Example
+# Cleaning Resource Pack Names
+## Example
 
 Some pack makers like to add characters to the pack name in order for it to appear first:  
 Just a few examples
@@ -27,6 +30,13 @@ This tool removes leading symbols ("!" and " ") which turns these names into the
 §bThe§6Legend§327 [16x] §6REVAMP.zip
 ```
 
+#Scanning Resource Packs
+Sometimes there are invalid pack.mcmeta files in a resource pack preventing it from showing in the pack menu.
+If you are using [aycy's resource pack manager mod v1.2](https://www.youtube.com/watch?v=OQZFWrrEcYM) this can go as far as not loading any subdirectories because of one invalid file.
+
+This tool scans your resource pack directory and reports any broken files.
+More information about this can be found [here]()
+
 # Usage
 
 1. Download the python file (`main.py`)
@@ -38,12 +48,25 @@ This tool removes leading symbols ("!" and " ") which turns these names into the
 3. Open a command prompt / terminal (`cmd` on windows)
 4. Run the python file (examples below)
    
-The program processes every provided directory  
-There are currently no other options
-```commandline
-python main.py C:\Users\USERNAME\AppData\Roaming\.minecraft\resourcepacks
-python main.py relative/directory
-python main.py /gnu/linux/minecraft/resourcepacks
-python main.py directory1 directory2 directory3
+The program processes every directory provided recursively  
+
+## Options
+* --verbose / -v
+  * Outputs more information about the programs current status. _Might_ spam your console
+* --search / -s
+  * Searches for invalid resource packs
+* --clean / -c
+  * Cleans resource packs names
+* --help / -h
+  * Prints help
+```shell
+#Cleans the User's resourcepack directory and sets the output mode to verbose
+python main.py -cv C:\Users\USERNAME\AppData\Roaming\.minecraft\resourcepacks
+#Scans a relative directory fir invalid resource packs
+python main.py --search relative/directory
+#Should also work on linux :)
+python main.py -csv /gnu/linux/minecraft/resourcepacks
+#Cleans and scans 3 directories
+python main.py -cs directory1 directory2 directory3
 ```
 
