@@ -30,7 +30,7 @@ This tool removes leading symbols ("!" and " ") which turns these names into the
 §bThe§6Legend§327 [16x] §6REVAMP.zip
 ```
 
-#Scanning Resource Packs
+# Scanning Resource Packs
 Sometimes there are invalid pack.mcmeta files in a resource pack preventing it from showing in the pack menu.
 If you are using [aycy's resource pack manager mod v1.2](https://www.youtube.com/watch?v=OQZFWrrEcYM) this can go as far as not loading any subdirectories because of one invalid file.
 
