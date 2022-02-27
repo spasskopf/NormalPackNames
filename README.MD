@@ -62,7 +62,7 @@ The program processes every directory provided recursively
 ```shell
 #Cleans the User's resourcepack directory and sets the output mode to verbose
 python main.py -cv C:\Users\USERNAME\AppData\Roaming\.minecraft\resourcepacks
-#Scans a relative directory fir invalid resource packs
+#Scans a relative directory for invalid resource packs
 python main.py --search relative/directory
 #Should also work on linux :)
 python main.py -csv /gnu/linux/minecraft/resourcepacks
